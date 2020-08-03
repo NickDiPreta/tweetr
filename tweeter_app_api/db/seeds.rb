@@ -16,3 +16,17 @@ Tweet.create({
     content: "Hey, I'm walkin' here!",
     author: "Nicky62"
   })
+
+
+  Reply.create({
+      content: "This is a test reply",
+      author: "Nicholas DiPreta",
+      tweet_id: 1
+  })
+
+
+  Reply.create({
+    content: "WHAT A DUMB TWEET!!!",
+    author: "Loser Mcloserface",
+    tweet_id: 2
+})
