@@ -26,3 +26,26 @@ Migrating to CreateTweets (20200803204011)
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+Started GET "/" for ::1 at 2020-08-03 16:51:23 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/nick/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/nick/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.3ms | Allocations: 409)
+Completed 200 OK in 25ms (Views: 18.3ms | ActiveRecord: 0.0ms | Allocations: 2254)
+
+
+Started GET "/tweets" for ::1 at 2020-08-03 16:51:28 -0400
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.8ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:4:in `index'
+Completed 200 OK in 17ms (Views: 9.2ms | ActiveRecord: 6.3ms | Allocations: 3875)
+
+
+Started GET "/tweets/1" for ::1 at 2020-08-03 16:51:36 -0400
+Processing by TweetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9:in `show'
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 1155)
+
+
