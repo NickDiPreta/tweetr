@@ -68,3 +68,24 @@ Processing by TweetsController#index as HTML
 Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.6ms | Allocations: 1180)
 
 
+Started PUT "/tweets/3" for ::1 at 2020-08-03 17:05:16 -0400
+Processing by TweetsController#update as */*
+  Parameters: {"tweet"=>{"title"=>"Test Tweet", "content"=>"This is a test of the post method", "author"=>"dipset"}, "id"=>"3"}
+  [1m[36mTweet Load (1.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:24:in `update'
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:25:in `update'
+  [1m[36mTweet Update (0.9ms)[0m  [1m[33mUPDATE "tweets" SET "author" = $1 WHERE "tweets"."id" = $2[0m  [["author", "dipset"], ["id", 3]]
+  ↳ app/controllers/tweets_controller.rb:25:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:25:in `update'
+Completed 200 OK in 102ms (Views: 0.6ms | ActiveRecord: 34.7ms | Allocations: 5680)
+
+
+Started GET "/tweets" for ::1 at 2020-08-03 17:05:18 -0400
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (1.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 1.1ms | Allocations: 1111)
+
+
